@@ -17,7 +17,7 @@
 
 namespace PhpOffice\PhpWord\Tests\Element;
 
-use PhpOffice\PhpWord\Element\Object;
+use PhpOffice\PhpWord\Element\ObjectHelper;
 
 /**
  * Test class for PhpOffice\PhpWord\Element\Object
@@ -33,9 +33,9 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testConstructWithSupportedFiles()
     {
         $src = __DIR__ . "/../_files/documents/sheet.xls";
-        $oObject = new Object($src);
+        $oObject = new ObjectHelper($src);
 
-        $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\Object', $oObject);
+        $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\ObjectHelper', $oObject);
         $this->assertInstanceOf('PhpOffice\\PhpWord\\Style\\Image', $oObject->getStyle());
         $this->assertEquals($oObject->getSource(), $src);
     }
@@ -48,7 +48,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testConstructWithNotSupportedFiles()
     {
         $src = __DIR__ . "/../_files/xsl/passthrough.xsl";
-        $oObject = new Object($src);
+        $oObject = new ObjectHelper($src);
         $oObject->getSource();
     }
 
@@ -58,9 +58,9 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testConstructWithSupportedFilesAndStyle()
     {
         $src = __DIR__ . "/../_files/documents/sheet.xls";
-        $oObject = new Object($src, array('width' => '230px'));
+        $oObject = new ObjectHelper($src, array('width' => '230px'));
 
-        $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\Object', $oObject);
+        $this->assertInstanceOf('PhpOffice\\PhpWord\\Element\\ObjectHelper', $oObject);
         $this->assertInstanceOf('PhpOffice\\PhpWord\\Style\\Image', $oObject->getStyle());
         $this->assertEquals($oObject->getSource(), $src);
     }
@@ -71,7 +71,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testRelationId()
     {
         $src = __DIR__ . "/../_files/documents/sheet.xls";
-        $oObject = new Object($src);
+        $oObject = new ObjectHelper($src);
 
         $iVal = rand(1, 1000);
         $oObject->setRelationId($iVal);
@@ -84,7 +84,7 @@ class ObjectTest extends \PHPUnit_Framework_TestCase
     public function testImageRelationId()
     {
         $src = __DIR__ . "/../_files/documents/sheet.xls";
-        $oObject = new Object($src);
+        $oObject = new ObjectHelper($src);
 
         $iVal = rand(1, 1000);
         $oObject->setImageRelationId($iVal);

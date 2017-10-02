@@ -24,7 +24,7 @@ use PhpOffice\PhpWord\Writer\Word2007\Style\Image as ImageStyleWriter;
  *
  * @since 0.10.0
  */
-class Object extends AbstractElement
+class ObjectHelper extends AbstractElement
 {
     /**
      * Write object element.
@@ -35,7 +35,7 @@ class Object extends AbstractElement
     {
         $xmlWriter = $this->getXmlWriter();
         $element = $this->getElement();
-        if (!$element instanceof \PhpOffice\PhpWord\Element\Object) {
+        if (!$element instanceof \PhpOffice\PhpWord\Element\ObjectHelper) {
             return;
         }
 

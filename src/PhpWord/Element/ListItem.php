@@ -17,7 +17,7 @@
 
 namespace PhpOffice\PhpWord\Element;
 
-use PhpOffice\PhpWord\Shared\String;
+use PhpOffice\PhpWord\Shared\StringHelper;
 use PhpOffice\PhpWord\Style\ListItem as ListItemStyle;
 
 /**
@@ -58,7 +58,7 @@ class ListItem extends AbstractElement
     public function __construct($text, $depth = 0, $fontStyle = null, $listStyle = null, $paragraphStyle = null)
     {
         $this->setStyle($listStyle);
-        $this->textObject = new Text(String::toUTF8($text), $fontStyle, $paragraphStyle);
+        $this->textObject = new Text(StringHelper::toUTF8($text), $fontStyle, $paragraphStyle);
         $this->depth = $depth;
     }
 
